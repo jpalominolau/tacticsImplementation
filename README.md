@@ -9,12 +9,16 @@ This is a simple Java prototype implementing the "Heartbeat" tactic for fault de
 3. Navigate to the directory containing `HeartbeatMonitor.java`
 4. Run:
 
-```javac HeartbeatMonitor.java```
+```
+javac HeartbeatMonitor.java
+```
 
 ## How to Run
 1. After compilation, run the program with:
 
-```java HeartbeatMonitor```
+```
+java HeartbeatMonitor
+```
 
 2. The program will print heartbeat send/receive messages
 3. The program stops if three consecutive heartbeats are missed, indicating a critical fault
