@@ -6,11 +6,10 @@ This is a simple Java prototype implementing the "Heartbeat" tactic for fault de
 ## How to Compile
 1. Ensure you have JDK installed (version 23 or higher recommended)
 2. Open command prompt or terminal
-3. Navigate to the directory containing `HeartbeatMonitor.java`
-4. Run:
+3. Navigate to the directory containing the code and compile all using the next command:
 
 ```
-javac HeartbeatMonitor.java
+javac *.java
 ```
 
 ## How to Run
@@ -30,7 +29,6 @@ java HeartbeatMonitor
 ## Project Structure
 - `HeartbeatMonitor.java` - Main class with heartbeat simulation, sender/receiver/monitor logic
 
-## Additional Notes
-- This prototype is a minimal implementation for educational purposes
-- No networking, threads or sockets are used
-- The code can be extended to real multiprocess by implementing threads, networking or sockets
+## Class diagram
+
+## Sequence diagram
