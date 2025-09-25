@@ -41,7 +41,7 @@ The class diagram models the structure of the heartbeat fault-detection system.
 
 * Monitor maintains a counter of consecutive missed heartbeats and checks the overall health of the system through the checkStatus() method. If the number of missed beats exceeds the threshold, it declares a critical fault.
 
-![Class Diagram](Heartbeat_class.png)
+![Class Diagram](Heartbeat_Class.png)
 
 ## Sequence diagram
 
