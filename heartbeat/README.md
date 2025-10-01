@@ -1,5 +1,5 @@
 # Heartbeat
-This is a simple Java prototype implementing the "Heartbeat" tactic for fault detection in an autonomous vehicle control module. The heartbeat monitors whether the control process is alive by detecting missed heartbeats and simulating non deterministic failure
+The heartbeat monitors a critical autonomous vehicle subsystem such as navigation and perception. It ensures the subsystem is functioning by detecting missing heartbeat signals. This helps identify faults early and maintain safe vehicle operation.
 
 ## Expected behavior
 2. The program will print heartbeat send/receive messages
