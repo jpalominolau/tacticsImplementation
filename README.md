@@ -1,5 +1,8 @@
 # Tactics implementation
 
+## Requirements
+- Ensure you have JDK installed (version 23 or higher recommended)
+
 ## How to compile and run
 From the root of this repository you will find two separate project folders:
 - heartbeatmonito/ - Prototype implementing the heartbeat tactic

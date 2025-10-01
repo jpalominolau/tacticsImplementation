@@ -1,7 +1,7 @@
 package heartbeatmonitor;
 import java.util.Random;
 
-public class HeartbeatMonitor {
+public class Heartbeat {
 
     public static void main(String[] args) {
         Random random = new Random();
@@ -19,7 +19,6 @@ public class HeartbeatMonitor {
             boolean sent = sender.send(total, random);
             if (!sent) {
                 System.out.println("System failed at Sender.");
-                break;
             }
 
             boolean received = receiver.receive(sent);
@@ -36,6 +35,9 @@ public class HeartbeatMonitor {
             }
 
             System.out.println("--------------------------");
+
+            // This is just to add the tick simulation
+            try { Thread.sleep(500); } catch (InterruptedException e) {}
         }
     }
 }

@@ -4,7 +4,7 @@ import java.util.Random;
 public class Sender {
 
     public boolean send(int count, Random random) {
-        int chance = random.nextInt(8);
+        int chance = random.nextInt(3);
         boolean failure;
 
         if (chance == 0) {
