@@ -5,7 +5,7 @@
 
 ## How to compile and run
 From the root of this repository you will find two separate project folders:
-- heartbeatmonito/ - Prototype implementing the heartbeat tactic
+- heartbeat/ - Prototype implementing the heartbeat tactic
 - faultrecovery/ - Prototype extending detection to include fault recovery tactic
 
 ## Compiling projects
