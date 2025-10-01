@@ -12,7 +12,7 @@ From the root of this repository you will find two separate project folders:
 Navigate to the root directory and compile each project separately as follows:
 
 ```
-javac heartbeatmonitor/*.java
+javac heartbeat/*.java
 javac faultrecovery/*.java
 ```
 
@@ -20,6 +20,6 @@ javac faultrecovery/*.java
 Run the main class of each project by specifiying its full package and class name for example:
 
 ```
-java heartbeatmonitor.HeartbeatMonitor
+java heartbeat.Heartbeat
 java faultrecovery.FaultRecovery
 ```
