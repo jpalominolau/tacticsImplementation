@@ -1,3 +1,4 @@
+package heartbeatmonitor;
 import java.util.Random;
 
 public class HeartbeatMonitor {

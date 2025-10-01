@@ -1,3 +1,4 @@
+package faultrecovery;
 import java.util.Random;
 
 public class FaultRecovery {

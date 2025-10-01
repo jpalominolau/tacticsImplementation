@@ -1,3 +1,4 @@
+package heartbeatmonitor;
 public class Monitor {
 
     public boolean checkStatus(int missed, int max) {

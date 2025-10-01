@@ -1,3 +1,4 @@
+package heartbeatmonitor;
 public class Receiver {
 
     public boolean receive(boolean senderResult) {

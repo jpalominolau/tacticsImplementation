@@ -1,4 +1,9 @@
+package faultrecovery;
 import java.util.Random;
+
+import heartbeatmonitor.Monitor;
+import heartbeatmonitor.Receiver;
+import heartbeatmonitor.Sender;
 
 public class Replica {
     private String name;
