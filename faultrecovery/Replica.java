@@ -1,9 +1,9 @@
 package faultrecovery;
 import java.util.Random;
 
-import heartbeatmonitor.Monitor;
-import heartbeatmonitor.Receiver;
-import heartbeatmonitor.Sender;
+import heartbeat.Monitor;
+import heartbeat.Receiver;
+import heartbeat.Sender;
 
 public class Replica {
     private String name;
@@ -48,6 +48,7 @@ public class Replica {
 
         if (!status) {
             crashed = true;
+            deactivate();
         }
 
         return !crashed;
