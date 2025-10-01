@@ -11,11 +11,11 @@ public class FaultRecovery {
         Replica primary = new Replica("Primary", true, maxMissed);
         Replica secondary = new Replica("Secondary", false, maxMissed);
 
-        int time = 0;
+        int count = 0;
 
         while (true) {
-            time++;
-            System.out.println("Tick " + time);
+            count++;
+            System.out.println("Tick " + count);
 
             boolean primaryAlive = primary.runHeartbeat(random);
 
@@ -39,8 +39,6 @@ public class FaultRecovery {
 
             // This is just to add the tick simulation
             try { Thread.sleep(500); } catch (InterruptedException e) {}
-
-            if (time > 50) break;
         }
     }
 }
