@@ -6,8 +6,8 @@ Fault recovery ensures continous operation of critical autonomous vehicle subsys
 2. When the primary replica fails, the secondary activates and takees over sending heartbeats
 3. The system stops if both replicas fail, indicating a critical fault that cannot be recovered automatically
 
+## Class diagram
+![Sequence Diagram](class_diagram.png)
+
 ## Sequence diagram
-
-## Activity diagram
-
-## State diagram
+![Sequence Diagram](sequence_diagram.png)
