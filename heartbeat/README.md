@@ -42,3 +42,18 @@ The sequence diagram illustrates the runtime behavior of the heartbeat tactic ac
 This sequence demonstrates how the heartbeat tactic detects failures by continuously monitoring a control process and reacting quickly if it becomes unresponsive.
 
 ![Sequence Diagram](Heartbeat_Sequence.png)
+
+## Activity diagram
+This Activity Diagram shows the activation process and fault recovery of both Replicas within the Vehicle Subsystem
+
+- The Fault Recovery Starts and checks to see if there are Replicas that are active; if there are none, it shuts off and goes to its final state
+- If there are replicas, it will go to the Active Primary Replica Placement and begin running the Heartbeat Function
+- Once the function completes, it will send the R1 (Replica 1) status back to the Fault Recovery
+- If Replica 1 is offline, then it will be sent a deactivation command and the activation command to Replica 2
+- Replica 2 will go through the Heartbeat Function in R1's stead, ultimately sending back its status.
+- It shows two backup systems taking turns sending and receiving status signals to confirm each is working and switch control if a failure occurs. This supports fault detection and recovery in the vehicle navigation or perception subsystem.
+
+With that, the fault detector within the Vehicle Navigation or the Perception Subsystem will constantly stay online, depending on the number of replica heartbeats one has, while the others can be fixed in the interim
+
+
+![Fault recovery activity diagram](./assets/HeartbeatReplicaActivity.png)
