@@ -7,6 +7,15 @@ Fault recovery ensures continous operation of critical autonomous vehicle subsys
 3. The system stops if both replicas fail, indicating a critical fault that cannot be recovered automatically
 
 ## Class diagram
+![Fault recovery class diagram](./assets/FaultRecoveryClass.png)
+
+This simplified representation of a cold spare is based on the Heartbeat tactic.
+This behavior is encapsulated in `Replica`, which mimics the ability of initializing
+a new process and monitoring its behavior. The `FaultRecovery` class maintains two
+`Replica`s. While the primary is active, the secondary is guarenteed put into a cold state with
+`deactivate`. If/when the primary `Replica` fails, the secondary is activated but given no
+shared state information other than a `Random` instance. Instead, it picks up with no prior knowledge. This
+simplifies the `FaultRecovery` implemenation at the expense of theoretical start time and lost information.
 
 The diagram show how backup components (Called "replicas") use simple heartbeat signals to detect failures.
 
@@ -16,9 +25,9 @@ The diagram show how backup components (Called "replicas") use simple heartbeat 
 
 This way, the vehicle can quickly find problems in navigation or perception and use backups to stay safe and reliable.
 
-![Sequence Diagram](class_diagram.png)
-
 ## Sequence diagram
+The following diagram tracks the synchronous message flow between classes. In practice, these could be replaced
+with asynchronous messages across a network.
 
 This sequence diagram shows the hearbeat process for fault recovery between two replicas in the vehicle subsystem.
 
@@ -30,4 +39,4 @@ This sequence diagram shows the hearbeat process for fault recovery between two 
 
 It shows two backup system take turns sending and receiving status signals to confirm each is working and switch control if a failure occurs. This supports fault detection and recovery in the vehicle navigation or perception subsystem.
 
-![Sequence Diagram](sequence_diagram.png)
+![Fault recovery sequence diagram](./assets/FaultRecoverySeq.png)
