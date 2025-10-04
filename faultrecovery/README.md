@@ -44,8 +44,6 @@ It shows two backup system take turns sending and receiving status signals to co
 ## Activity diagram
 This Activity Diagram shows the activation process and fault recovery of both Replicas within the Vehicle Subsystem
 
-This sequence diagram shows the heartbeat process for fault recovery between two replicas in the vehicle subsystem.
-
 - The Fault Recovery Starts and checks to see if there are Replicas that are active; if there are none, it shuts off and goes to its final state
 - If there are replicas, it will go to the Active Primary Replica Placement and begin running the Heartbeat Function
 - Once the function completes, it will send the R1 (Replica 1) status back to the Fault Recovery
