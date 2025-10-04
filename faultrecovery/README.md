@@ -55,3 +55,6 @@ With that, the fault detector within the Vehicle Navigation or the Perception Su
 
 
 ![Fault recovery activity diagram](./assets/HeartbeatReplicaActivity.png)
+
+## Trade-off
+The main design trade-off is between complexity and reliability. Using two replicas with heartbeat monitoring makes the system more reliable, but it also increases system complexity. The choosen design sacrifices simplicity and minimal resources in favor of fault tolerance, redundancy and quick failure detection. This ensures the vehicle can keep working even if something goes wrong with a component.
