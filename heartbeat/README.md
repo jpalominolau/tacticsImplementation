@@ -2,8 +2,8 @@
 The heartbeat monitors a critical autonomous vehicle subsystem such as navigation and perception. It ensures the subsystem is functioning by detecting missing heartbeat signals. This helps identify faults early and maintain safe vehicle operation.
 
 ## Expected behavior
-2. The program will print heartbeat send/receive messages
-3. The program stops if three consecutive heartbeats are missed, indicating a critical fault
+1. The program will print heartbeat send/receive messages
+2. The program stops if three consecutive heartbeats are missed, indicating a critical fault
 
 ## Class diagram
 
