@@ -11,3 +11,4 @@ The implemented ThreadPool create a fixed set of 10 threads (SumThread) that col
 ## Activity diagram
 
 ## Sequence diagram
+[](SWEN755_threadpool_sq.png)
