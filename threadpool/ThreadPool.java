@@ -50,7 +50,7 @@ public class ThreadPool {
 
     public static long runPool() throws InterruptedException {
         int dataSize = 100000;
-        int blockSize = 10000;
+        int blockSize = 1000;
         int[] data = new int[dataSize];
         for (int i = 0; i < dataSize; i++)
             data[i] = 1;
@@ -58,13 +58,14 @@ public class ThreadPool {
         int numThreads = 10;
         int numTasks = (dataSize + blockSize - 1) / blockSize;
         long[] results = new long[numTasks];
+        long[] times = new long[numTasks];
 
         ThreadPool pool = new ThreadPool(numThreads);
 
         for (int i = 0; i < numTasks; i++) {
             int start = i * blockSize;
             int end = Math.min(dataSize, start + blockSize);
-            pool.submit(new SumThread(i, start, end, data, results));
+            pool.submit(new SumThread(i, start, end, data, results, times));
         }
 
         Thread.sleep(6000);
