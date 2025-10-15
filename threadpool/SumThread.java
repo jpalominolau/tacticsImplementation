@@ -1,6 +1,6 @@
 package threadpool;
 
-public class SumThread extends Thread {
+public class SumThread implements Runnable {
     private int start;
     private int end;
     private int id;
@@ -15,8 +15,10 @@ public class SumThread extends Thread {
         this.results = results;
     }
 
+    @Override
     public void run() {
         long sum = 0;
+        String threadName = Thread.currentThread().getName();
         for (int i = start; i < end; i++) {
             sum += data[i];
             if (i % 10000 == 0) {
@@ -25,7 +27,9 @@ public class SumThread extends Thread {
                 } catch (InterruptedException e) {}
             }
         }
-        results[id] = sum;
-        System.out.println("Thread " + id + " finished with sum " + sum);
+        synchronized (results) {
+            results[id] = sum;
+        }
+        System.out.println("Task " + id + " finished with sum " + sum + " by " + threadName);
     }
 }
