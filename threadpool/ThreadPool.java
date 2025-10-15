@@ -4,7 +4,7 @@ public class ThreadPool {
     private static int[] data = new int[100_000];
     private static long[] results = new long[10];
 
-    public static long run() throws InterruptedException {
+    public static long runPool() throws InterruptedException {
         for (int i = 0; i < data.length; i++) {
             data[i] = 1;
         }
