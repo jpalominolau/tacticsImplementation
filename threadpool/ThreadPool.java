@@ -1,38 +1,10 @@
+package threadpool;
+
 public class ThreadPool {
-    static int[] data = new int[100_000];
-    static long[] results = new long[10];
+    private static int[] data = new int[100_000];
+    private static long[] results = new long[10];
 
-    static class SumThread extends Thread {
-        int start;
-        int end;
-        int id;
-
-        SumThread(int id, int start, int end) {
-            this.id = id;
-            this.start = start;
-            this.end = end;
-        }
-
-        public void run() {
-            long sum = 0;
-            for (int i = start; i < end; i++) {
-                sum += data[i];
-
-                if (i % 10000 == 0) {
-                    try {
-                        Thread.sleep(1);
-                    } catch (InterruptedException e) {
-                        // Error
-                    }
-                }
-            }
-
-            results[id] = sum;
-            System.out.println("Thread " + id + " finished with sum " + sum);
-        }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
+    public static long run() throws InterruptedException {
         for (int i = 0; i < data.length; i++) {
             data[i] = 1;
         }
@@ -43,15 +15,8 @@ public class ThreadPool {
 
         for (int i = 0; i < numThreads; i++) {
             int start = i * blockSize;
-            int end;
-            
-            if (i == numThreads - 1) {
-                end = data.length;
-            } else {
-                end = (i + 1) * blockSize;
-            }
-
-            pool[i] = new SumThread(i, start, end);
+            int end = (i == numThreads - 1) ? data.length : (i + 1) * blockSize;
+            pool[i] = new SumThread(i, start, end, data, results);
             pool[i].start();
         }
 
@@ -64,6 +29,6 @@ public class ThreadPool {
             total += results[i];
         }
 
-        System.out.println("Total sum: " + total);
+        return total;
     }
 }

@@ -24,9 +24,5 @@ Run the main class of each project by specifiying its full package and class nam
 ```
 java heartbeat.Heartbeat
 java faultrecovery.FaultRecovery
-```
-
-```
-cd threadpool
-java ThreadPool
+java threadpool.Main
 ```
