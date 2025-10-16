@@ -11,6 +11,10 @@ The implemented ThreadPool create a fixed set of 10 threads (SumThread) that col
 ## Activity diagram
 ![](activity_diagram_thread_pooling.png)
 
+This diagram ilustrates how the Main process uses a ThreadPool to execute multiple summation tasks concurrently. The Main component starts by invoking the ThreadPool, which initializes its data and parameters, creates worker threads and submits ten SumThread tasks to the queue. Each SumThread computes a partial sum, records its execution time and stores the result in a synchronized manner to ensure thread satefy.
+
+After all tasks finish the ThreadPool waits for completion, shut down the workers, aggregates the partial results and returns the total sum to the Main process. Finally the Main component displays the computed total completing the workflow.
+
 ## Sequence diagram
 ![](sequence_diagram_thread_pooling.png)
 
