@@ -1,12 +1,12 @@
 # Thread Pooling
-The implemented ThreadPool create a fixed set of 10 threads (SumThread) that collectively sum different portions of a large array of integers. Each thread is assigned a segment of the array, performs a time consuming sum operation simulating work by sleeing intermittently and stores its partial result. The threads are started once and reused for their assigned work, representing a basic thread pool prototype that manages threads efficiently for a performance critical task.
+The implemented ThreadPool manages a fixed set of 10 worker threads that execute submitted SumTread tasks. Each SumTread is responsible for summing a specific portion of a large interger array. The pool distributes the workload by submitting multiple tasks to the queue and the worker threads fetch and execute them concurrently. Each task simulates computational effort by performing intermittent delays and stores its partial result safely in shared data structures. This design demonstrates and efficient multithreading apporach where a reusable thread pool handles multiple computational tasks in parallel.
 
 ## Expected behavior
-1. Exactly 10 threads are created and started, each handeling a unique portion of the array
-2. Each thread performs a substantial computation task including simulated delays, ensuring the task is time consuming
-3. Threads operate concurrently, maximazing CPU utilization by processing different segments simultaneously
-4. Threads execute their task independently, then store results in a shred structure for aggregation
-5. The main program waits until all threads complete, then sums their results to output the total sum of the array
+1. The ThreadPool initializes 10 workers threads ready to execute tasks concurrently
+2. The program divides the array into multiple segments and creates one SumThread task per segment
+3. Each SumThread computes the partial sum of its assigned segment simulating workload with delays
+4. Worker threads pick up available tasks from the queue and run them independently
+5. After all tasks complete the ThreadPool aggregates the partial results and returns the total sum to the main program
 
 ## Activity diagram
 ![](activity_diagram_thread_pooling.png)
