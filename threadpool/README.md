@@ -18,4 +18,6 @@ After all tasks finish the ThreadPool waits for completion, shut down the worker
 ## Sequence diagram
 ![](sequence_diagram_thread_pooling.png)
 
-The main starts by initializing both ThreadPool, results and data arrays. ThreadPool has a size of 10 and each data array element to 1, which data array has a total size of 100,000. Then main function starts the threads which immediately calls the run loop (designated by run message in the diagram). Now, in the loop the [less than 10] refers that the index is less than 10 as it increments by one each loop. Once in the loop, each thread that hits the condition i % 1000 = 0 will then sleep (wait), and finally that thread writes to results array. The computing total result is a for loop that calculates results array together.
+The main program calls ThreadPool.runPool(), where 10 worker threads are initialized. A for loop creates SumThread tasks that implement Runnable and submits them to the thread pool. These worker threads continuously fetch tasks from the shared queue and execute them in parallel. Each SumThread computes the total of its assigned block and records the execution time; both the computed sums and their execution times are stored in synchronized shared arrays to prevent race conditions.
+
+After allowing the pool to shut down gracefully (by sleeping for 6 seconds), the workers finish any pending tasks and all worker threads terminate. Finally, all partial results are aggregated into a final sum, which is printed in the main program.
