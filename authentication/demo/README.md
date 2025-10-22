@@ -22,6 +22,14 @@ In the project implemented with Spring Security authentication is achieved by ve
 Navigate to cd authentication/demo and then use the command ```mvn spring-boot:run```. This will run the project in the browser ```localhost:8080```.
 
 ## Route Table
+| **Route**              | **HTTP Method** | **Description**                              | **Access**    |
+| ---------------------- | --------------- | -------------------------------------------- | ------------- |
+| `/login`               | `GET`           | Displays the login page                      | Public        |
+| `/login`               | `POST`          | Authenticates user credentials               | Public        |
+| `/admin/dashboard`     | `GET`           | Admin dashboard page                         | ADMIN only    |
+| `/user/home`           | `GET`           | User homepage                                | USER or ADMIN |
+| `/logout`              | `POST`          | Logs out the user, invalidates session       | Authenticated |
+| `/access-denied` (403) | `GET`           | Displays access denied page (custom handler) | All users     |
 
 ## Activity diagram
 ### Login
