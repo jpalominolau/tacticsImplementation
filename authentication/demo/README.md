@@ -32,13 +32,21 @@ Navigate to cd authentication/demo and then use the command ```mvn spring-boot:r
 | `/access-denied` (403) | `GET`           | Displays access denied page (custom handler) | All users     |
 
 ## Activity diagram
+The activity diagram can be divided into three main parts: Login, Authentication and Authorization & Logout, each illustrating a specific responsability within the Spring Boot and Spring Security workflow. Together, they depict how the system enforces secure access control through a combination of authentication and authorization tactics as described in "Software Architecture in Practice 4th Edition" under the Security quality attribute.
+
 ### Login
+In the first section, the user access the ```/login``` page and submits credentials. This interaction initializes the security filter chain in Spring Security. Which interceps and processes the request before it reaches any controller. From and architectural perspective, this part implements the "Identify Actors" phase of the authentication tactic desccribed by Bass. The system captures identity related information (username and password) and prepares it for verification. Spring Boot configuration automatically register this filter chain through the ```SecurityFilterChain```, as defined in the ```SecurityConfig``` class. This design ensures that all incoming request pass through the same entry point, enforcing a consistent authentication policy across the system.
+
 ![Activity Diagram Login](activity_login.png)
 
 ### Authentication
+The second part illustrate the core of the authentication tactic. Here ```SecurityCongig``` uses the ```InMemoryUserDetailsManager``` object representing the verified user identity and associated roles. Then a ```successHandler()``` determines the correct redirect URL based on the user role, either ```/admin/dashboard``` or ```/user/home```. This process aligns directly with the "Authentication Actor" tactic from the book, where the system verifies claimed identities through credentials and establishes a session or token representing trust. Spring Security abstracts this mechanism, making authentication reusable, configurable and testable, which enhances modifiability another architectural quality attribute emphasized in the book.
+
 ![Activity Diagram Authentication](activity_authentication.png)
 
-### Authorization
+### Authorization & Logout
+The final section corresponds to the authorization tactic and the session termination process. Once authenticated, the user attempts to access protected resources like ```/admin/**``` or ```/user/**```. Authorization checks are performed based on role definitions configured in ```HttpSecurity```. If access is granted the ```SampleController``` returns the corresponding HTML page. Otherwise the ```CustomAccessDeniedHandler``` responds with an HTTP 403 error. This embodies the "Authorize Actors" tactic, ensuring that authenticated users can only perform actions permitted by their assigned roles or priviliges.
+
 ![Activity Diagram Authorization](authorization_logout.png)
 
 ## Sequence diagram
