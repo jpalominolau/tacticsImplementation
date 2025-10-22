@@ -20,3 +20,28 @@ In the project implemented with Spring Security authentication is achieved by ve
 
 ## How to run the project
 Navigate to cd authentication/demo and then use the command ```mvn spring-boot:run```. This will run the project in the browser ```localhost:8080```.
+
+## Route Table
+
+## Activity diagram
+### Login
+![Activity Diagram Login](activity_login.png)
+
+### Authentication
+![Activity Diagram Authentication](activity_authentication.png)
+
+### Authorization
+![Activity Diagram Authorization](authorization_logout.png)
+
+## Sequence diagram
+### Application startup
+![Sequence Diagram Application Startup](application_startup.png)
+
+### Authentication
+![Sequence Diagram Authentication](authentication.png)
+
+### Authorization
+![Sequence Diagram Authorization](authorization.png)
+
+### Logout
+![Sequence Diagram Logout](logout.png)
