@@ -63,6 +63,8 @@ The load balancer prototype is designed using the following UML diagrams:
 
 ![Sequence Diagram](diagrams/load_balancer_sequence_diagram.png)
 
+The sequence diagram illustrates the round-robin load balancing mechanism in action, showing how the Main Class initializes the LoadBalancer with three servers and spawns multiple RequestThreads that concurrently access the synchronized getNextServer() method. The diagram demonstrates the thread-safe distribution of requests across servers in a cyclical pattern, with each thread obtaining its assigned server through the load balancer's modulo-based indexing system that ensures even distribution while maintaing synchronization under conccurent access.
+
 ### Activity Diagram
 
 ![Activity Diagram](diagrams/load_balancer_activity_diagram.png)
