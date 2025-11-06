@@ -64,6 +64,8 @@ The load balancer prototype is designed using the following UML diagrams:
 
 ![Class Diagram](diagrams/load_balancer_class_diagram.png)
 
+This diagram illusttrate a simple load balancer simulation. The ```Main``` class servers as the entry point, containing the ```main``` method and a static method ```startLoadBalancerDemo()```. The ```Main``` class creates instanes of the ```LoadBalancer``` class, which maintains a list of server names and the current index for load balancing and provides a synchronized method ```getNextServer()``` to retrieve the next server in a thread safe manner. The ```Main``` class also starts multiple ```RequestThread``` instances, each representing a request handled by the load balancer. Each ```RequestThread``` holds a reference to the ```LoadBalancer``` and a unique request ID and its ```run()``` method executes the request logic. The ```RequestThread``` class extends the ```Thread``` class, allowing each request to run concurrently.
+
 ### Sequence Diagram
 
 ![Sequence Diagram](diagrams/load_balancer_sequence_diagram.png)
